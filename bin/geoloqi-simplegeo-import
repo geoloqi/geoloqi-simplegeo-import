@@ -1,0 +1,111 @@
+#!/usr/bin/env ruby
+require 'rubygems'
+require 'geoloqi'
+require 'oauth'
+
+if ARGV.length != 3
+  puts 'Usage: geoloqi-simplegeo-import GEOLOQI_ACCESS_TOKEN SIMPLEGEO_OAUTH_KEY SIMPLEGEO_OAUTH_SECRET'
+  exit
+end
+
+# TODO: Containerize in class
+module Geoloqi
+  module SimpleGeo
+    SITE = 'http://api.simplegeo.com'
+    VERSION = '0.1'
+    class Session
+      def initialize(key, secret)
+        consumer = OAuth::Consumer.new key, secret, :site => SITE
+        @access_token = OAuth::AccessToken.new consumer
+      end
+
+      def get(path, args={});    run(:get, path, args)    end
+      def put(path, args={});    run(:put, path, args)    end
+      def delete(path, args={}); run(:delete, path, args) end
+
+      def run(meth, path, args)
+        if meth == :get
+          query = "#{SITE}/#{VERSION}/#{path}"
+          if args != {}
+            query += "?#{Rack::Utils.build_query args}"
+          end
+          result = @access_token.send meth, query
+        else
+          result = @access_token.send meth, "#{SITE}/#{VERSION}/#{path}", args.to_json, 'Content-Type'=>'application/json'
+        end
+        Response.new result.code, result.body
+      end
+    end
+
+    class Response
+      attr_reader :status, :body
+      alias_method :code, :status
+      def initialize(status, body)
+        @status = status
+        @body = JSON.parse body, :symbolize_names => true
+      end
+    end
+  end
+end
+
+geoloqi_access_token, simplegeo_oauth_key, simplegeo_oauth_secret = ARGV
+
+simplegeo_session = Geoloqi::SimpleGeo::Session.new simplegeo_oauth_key, simplegeo_oauth_secret
+geoloqi_session = Geoloqi::Session.new :access_token => geoloqi_access_token
+
+layers_cursor = ''
+
+while layers_cursor do
+  layers_result = simplegeo_session.get 'layers.json'
+  layers_result.body[:layers].each do |layer|
+    
+    geoloqi_layer_name = layer[:title] || layer[:name]
+    
+    puts "\n\n#############\nMigrating layer \"#{layer[:name]}\" with title \"#{layer[:title]}\".\n\n"
+    
+    layer_result = geoloqi_session.post 'layer/create', {
+      :name => geoloqi_layer_name,
+      :key => layer[:name]
+    }
+    
+    puts "This layer is named \"#{geoloqi_layer_name}\" on Geoloqi and has an ID of \"#{layer_result[:layer_id]}\"!\n\n"
+    
+    records_cursor = ''
+
+    print "IMPORTING POINTS AS GEOLOQI PLACES (SimpleGeo ID => Geoloqi ID): "
+
+    while records_cursor do
+      records_result = simplegeo_session.get "records/#{layer[:name]}/nearby/0,0.json", {
+        :bbox => '-90,-180,90,180',
+        :limit => 10,
+        :cursor => records_cursor
+      }
+
+      records_result.body[:features].each do |feature|
+
+        geoloqi_place_name = (feature[:properties][:name] if feature[:properties] && feature[:properties][:name]) || nil
+        geoloqi_place_description = (feature[:properties][:description] if feature[:properties] && feature[:properties][:description]) || nil
+        result = geoloqi_session.post 'place/create', {
+          :name => geoloqi_place_name,
+          :description => geoloqi_place_description,
+          :latitude => feature[:geometry][:coordinates][1],
+          :longitude => feature[:geometry][:coordinates][0],
+          :layer_id => layer_result[:layer_id],
+          :key => "simplegeo-#{feature[:id]}",
+          :extra => feature[:properties]
+        }
+        print "#{feature[:id]} => #{result[:place_id]}, "
+        STDOUT.flush
+      end
+
+      records_cursor = records_result.body[:next_cursor]
+    end
+    
+    puts "\n\nLayer \"#{layer[:name]}\" import complete! View and edit your layer on a map here: https://geoloqi.com/layers/#{layer_result[:layer_id]}/edit"
+  end
+
+  
+  layers_cursor = layers_result.body[:next_cursor]
+end
+
+puts "\nDone importing! Thanks for using Geoloqi.\n"
