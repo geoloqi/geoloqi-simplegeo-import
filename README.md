@@ -40,6 +40,11 @@ Feel free to file any issues on Github, we will respond to them as soon as possi
 ## TODO
 This is a quick-fix solution. However we are planning on making a more stable, complete tool for importing data to Geoloqi from other sources (and for exporting your data out of Geoloqi). We feel it's in your best interest to have total control of your data at all times, and we want to help you solve problems, including the problem of transferring data between your machine and cloud services.
 
+## FAQ
+**What is this going to cost me?**
+
+We will be announcing pricing next week!
+
 ## Authors
 * [Kyle Drake](https://github.com/kyledrake)
 * [Aaron Parecki](https://github.com/aaronpk)
