@@ -19,7 +19,7 @@ With Geoloqi you can search for nearby layers and places very easily with these 
 * [layer/nearby](https://developers.geoloqi.com/api/layer/nearby)
 * [place/nearby](https://developers.geoloqi.com/api/place/nearby)
 
-You can experiment with running these API calls directly from cURL or from our [Developers Console](https://):
+You can experiment with running these API calls directly from cURL or from our [Developers Console](https://developers.geoloqi.com):
 
 * [Console for layer/nearby](https://developers.geoloqi.com/console?method=layer/nearby)
 * [Console for place/nearby](https://developers.geoloqi.com/console?method=place/nearby)
