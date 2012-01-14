@@ -30,7 +30,7 @@ We have SDK libraries for [Ruby](https://github.com/geoloqi/geoloqi-ruby), [Java
 Feel free to file any issues on Github, we will respond to them as soon as possible. If you need any features here we haven't provided, don't hesitate to contact us.
 
 ## TODO
-This is a quick-fix solution. However we are planning on making a more stable, complete tool for importing data to Geoloqi from other sources (and for exporting your data out of Geoloqi). We feel it's in your best interest to have total control of your data at all times, and we want to help you solve problems, not lock you into our platform.
+This is a quick-fix solution. However we are planning on making a more stable, complete tool for importing data to Geoloqi from other sources (and for exporting your data out of Geoloqi). We feel it's in your best interest to have total control of your data at all times, and we want to help you solve problems, including the problem of transferring data between your machine and cloud services.
 
 ## Authors
 [Kyle Drake](https://github.com/kyledrake)
