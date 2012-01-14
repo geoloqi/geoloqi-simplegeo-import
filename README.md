@@ -1,14 +1,18 @@
 # Geoloqi's SimpleGeo Import Tool - Transfer your data out of SimpleGeo and into Geoloqi with one command!
-This tool will let you automatically transfer SimpleGeo data over to Geoloqi. It makes Geoloqi Layers for each Simplegeo Layer, and converts Records to Geoloqi Places for each of the layer!
+This tool will allow you to transfer your SimpleGeo Storage data over to Geoloqi. It makes Geoloqi Layers for each SimpleGeo Layer, and converts Records to Geoloqi Places for each of the layers.
 
 All you need to run the command is a Geoloqi Access Token, and the SimpleGEO OAuth Key and Secret. You can sign up for a Geoloqi account at [The Geoloqi Web Site](https://geoloqi.com) and retrieve your access token from the [Geoloqi Developers site](https://developers.geoloqi.com).
 
-This script is provided as an executable via rubygems, which means it runs on any Mac OSX computer out-of-the-box (and on any Windows/Linux machines with ruby available).
+This script is provided as an executable via Rubygems, which means it runs on any Mac OSX computer out-of-the-box (and on any Windows/Linux machines with ruby available).
 
 ## Installation 
-    gem install geoloqi-simplegeo-import
+Open up a terminal and run this in the command line:
+
+    $ gem install geoloqi-simplegeo-import
     
 ## Usage
+Run the script from the command line:
+
     $ geoloqi-simplegeo-import YOUR_GEOLOQI_ACCESS_TOKEN YOUR_SIMPLEGEO_OAUTH_KEY YOUR_SIMPLEGEO_OAUTH_SECRET
     
 The script will output information on the transferred data, and give you a link to our Layer Editor so you can see and edit your Layers and Places (we have a GUI interface for your data!).
@@ -25,6 +29,8 @@ You can experiment with running these API calls directly from cURL or from our [
 * [Console for place/nearby](https://developers.geoloqi.com/console?method=place/nearby)
 
 We have SDK libraries for [Ruby](https://github.com/geoloqi/geoloqi-ruby), [JavaScript](https://github.com/geoloqi/geoloqi-js), [Node.JS](https://github.com/geoloqi/geoloqi-node), [PHP](https://github.com/geoloqi/geoloqi-sdk-php), and more coming very, very soon.
+
+There is a lot of other stuff you can do with Geoloqi, such as geolocation triggers/callbacks and geo-messaging. [Visit our web site](https://geoloqi.com) to read more about us (and where we're going).
 
 ## Bugs
 Feel free to file any issues on Github, we will respond to them as soon as possible. If you need any features here we haven't provided, don't hesitate to contact us.
