@@ -1,5 +1,5 @@
 # Geoloqi's SimpleGeo Import Tool - Transfer your data out of SimpleGeo and into Geoloqi with one command!
-This tool will allow you to transfer your SimpleGeo Storage data over to Geoloqi. It makes Geoloqi Layers for each SimpleGeo Layer, and converts Records to Geoloqi Places for each of the layers.
+This tool will allow you to transfer your SimpleGeo Storage data over to Geoloqi. It makes Geoloqi Layers for each SimpleGeo Layer, and converts Records to Geoloqi Places for each of the layers. It also allows you to view your data in a visual editor. 
 
 All you need to run the command is a Geoloqi Access Token, and the SimpleGEO OAuth Key and Secret. You can sign up for a Geoloqi account at [The Geoloqi Web Site](https://geoloqi.com) and retrieve your access token from the [Geoloqi Developers site](https://developers.geoloqi.com).
 
