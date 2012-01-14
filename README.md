@@ -13,6 +13,17 @@ This script is provided as an executable via rubygems, which means it runs on an
     
 The script will output information on the transferred data, and give you a link to our Layer Editor so you can see and edit your Layers and Places (we have a GUI interface for your data!).
 
+## Searching for Nearby Layers and Places
+With Geoloqi you can search for nearby layers and places very easily with these two API calls:
+
+* [layer/nearby](https://developers.geoloqi.com/api/layer/nearby)
+* [place/nearby](https://developers.geoloqi.com/api/place/nearby)
+
+You can experiment with running these API calls directly from cURL or from our Developers Console:
+
+* [Console for layer/nearby](https://developers.geoloqi.com/console?method=layer/nearby)
+* [Console for place/nearby](https://developers.geoloqi.com/console?method=place/nearby)
+
 ## Bugs
 Feel free to file any issues on Github, we will respond to them as soon as possible. If you need any features here we haven't provided, don't hesitate to contact us.
 
