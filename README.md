@@ -21,4 +21,5 @@ This is a quick-fix solution. However we are planning on making a more stable, c
 
 ## Authors
 [https://github.com/kyledrake](Kyle Drake)
+
 [https://github.com/aaronpk](Aaron Parecki)
