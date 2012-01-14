@@ -17,6 +17,8 @@ Run the script from the command line:
     
 The script will output information on the transferred data, and give you a link to our Layer Editor so you can see and edit your Layers and Places (we have a GUI interface for your data!).
 
+![Places in Geoloqi](http://farm8.staticflickr.com/7007/6692890167_ac80f026dd_z.jpg "Places in Geoloqi")
+
 ## Searching for Nearby Layers and Places
 With Geoloqi you can search for nearby layers and places very easily with these two API calls:
 
@@ -39,6 +41,5 @@ Feel free to file any issues on Github, we will respond to them as soon as possi
 This is a quick-fix solution. However we are planning on making a more stable, complete tool for importing data to Geoloqi from other sources (and for exporting your data out of Geoloqi). We feel it's in your best interest to have total control of your data at all times, and we want to help you solve problems, including the problem of transferring data between your machine and cloud services.
 
 ## Authors
-[Kyle Drake](https://github.com/kyledrake)
-
-[Aaron Parecki](https://github.com/aaronpk)
+* [Kyle Drake](https://github.com/kyledrake)
+* [Aaron Parecki](https://github.com/aaronpk)
