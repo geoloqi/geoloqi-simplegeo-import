@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = "geoloqi-simplegeo-import"
-  s.version     = '0.0.1'
+  s.version     = '0.0.2'
   s.authors     = ["Kyle Drake"]
   s.email       = ["kyledrake@gmail.com"]
   s.homepage    = ""
@@ -19,6 +19,6 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   # specify any dependencies here; for example:
-  s.add_dependency 'geoloqi'
-  s.add_dependency 'oauth'
+  s.add_dependency 'geoloqi', '>= 0.9.36'
+  s.add_dependency 'oauth',  '>= 0.4.5'
 end
