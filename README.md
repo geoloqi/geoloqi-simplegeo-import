@@ -43,7 +43,7 @@ This is a quick-fix solution. However we are planning on making a more stable, c
 ## FAQ
 **What is this going to cost me?**
 
-We will be announcing pricing next week!
+Please see our developer site for pricing information: https://developers.geoloqi.com/pricing
 
 ## Authors
 * [Kyle Drake](https://github.com/kyledrake)
